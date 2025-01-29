@@ -12,13 +12,11 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
-// git commit -m "step number 2. Build the skeleton of the backedn using npm and add the dependencies"            
-
 // Step number 3. Build a user table using Prisma. This table should contain a UUID that is the primary key, a first name, last name, email that is unique, and a password. All fields should be not null.
 model User {
   id       String      @id @default(uuid())
   firstName  String @unique
   lastName  String @unique
-  email  String
-  password  String
+  email  String  @unique
+  password  String @unique
 }
